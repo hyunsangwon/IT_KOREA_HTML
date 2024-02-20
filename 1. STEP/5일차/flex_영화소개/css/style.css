@@ -3,6 +3,13 @@
     margin: 0;
     box-sizing: border-box;
 }
+.site-title {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 38px;
+    color: #e50914;
+    font-weight: 400;
+}  
 .container {
     /* width값이 px이면 flex wrap은 작동하지 않는다. */
     width: 1500px;
@@ -16,7 +23,7 @@
     position: relative;
     height: 360px;
     /* 요소의 최대 가로 크기 지정 */
-    width: 200px;
+    width: 180px;
     /* HTML 요소 밖으로 삐져나오는 컨텐츠를 숨겨버릴 수 있다. */
     overflow: hidden;
     margin: 10px;
@@ -60,7 +67,7 @@
     height: 60px;
     border-radius: 50%;
     /* css로 이미지 넣기 */
-    background: #004fff url(../img/icon-play.png) center no-repeat;
+    background: #e50914 url(../img/icon-play.png) center no-repeat;
     background-size: 20px;
 }
 .card:hover {
