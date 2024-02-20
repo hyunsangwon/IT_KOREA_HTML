@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .box01 {
+        width: 100px;
+        height: 150px;
+        border: 1px solid black;
+      }
+      .box02 {
+        /* px(픽셀): 화면의 가장 작은 단위 */
+        width: 200px;
+        height: 300px;
+        border: 1px solid red;
+        text-align: center;
+      }
+      /* margin 바깥쪽 여백을 의미 */
+      /* padding 안쪽 여백을 의미 */
+    </style>
+  </head>
+  <body>
+    <!-- div는 "division(나누다)"의 줄임말이고, BOX태그라고도 한다.
+        div는 실무에서 100% 사용하며, div개념만 잘 숙지하면 금방 웹페이지 제작 가능.
+    -->
+    <!-- div는 대표적인 block 태그 중 하나다.
+    block 태그에는 div, p, h1 태그가 있고, block 태그는 줄바꿈이 들어가는 특징을 가지고 있다.
+
+    이와 반대로, 줄바꿈 없이 한 줄에 쭉 나열되는 특징을 가지는 태그가 있는데 이를 inline 태그라고 하며,
+    대표적으로 span, a태그가 존재한다. 
+    -->
+    <div class="box01">
+      <!-- 클래스란 CSS 선택자 중 하나며, 실무에서 가장많이 사용하는 CSS 선택자 방법이다. 
+            CSS란 Style sheet language라고 부르며 CSS를 이용해 HTML 디자인을 작업을 할 수 있다.
+        -->
+      <!-- h2태그는 현재 box01이라는 클래스이름을 가진 div 안에 있음.
+            div.box1은 h2에 부모태그가 되고, h2는 div.box1에 자식태그가 된다.
+        -->
+      <h2>BOX 01</h2>
+    </div>
+    <div class="box02">
+      <div>BOX 02</div>
+    </div>
+  </body>
+</html>

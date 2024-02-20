@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 70px;
+        }
+        .single-box{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            height: auto;
+            border-radius: 4px;
+            background-color: #fff;
+            margin: 20px;
+            padding: 20px;
+            transition: .3s;
+            box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.6);
+        }
+        .img-area{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            border: 6px solid #ddd;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            padding: 20px;
+            background-size: cover;
+        }
+        .single-box:nth-child(1) .img-area{
+            background-image: url(ballog.gif);
+        }
+        .single-box:nth-child(2) .img-area{
+            background-image: url(blue-snail.gif);
+        }
+        .single-box:nth-child(3) .img-area{
+            background-image: url(yeti.gif);
+        }
+        .header-text{
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 48px;
+        }
+        .img-text{
+            padding-top: 20px;
+        }
+        .line{
+            height: 2px;
+            width: 45px;
+            background: #222;
+            margin: 10px auto;
+        }
+        .img-text h3{
+           margin: 10px 0;
+        }
+        .img-text p{
+           font-size: 15px;
+           font-weight: 400;
+           line-height: 30px;
+        }
+        .img-text:hover{
+           cursor: pointer;
+           background-color: darkorange;
+           color: #fff;
+        }
+        .img-text:hover .line{
+           background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="single-box">
+            <div class="img-area"></div>
+            <div class="img-text">
+                <span class="header-text"><strong>Jason Doe</strong></span>
+                <div class="line"></div>
+                <h3>Designer</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nemo facilis tempore suscipit maiores enim, reprehenderit modi quo deserunt inventore vel.</p>
+            </div>
+        </div>
+        <div class="single-box">
+            <div class="img-area"></div>
+            <div class="img-text">
+                <span class="header-text"><strong>Jason Doe</strong></span>
+                <div class="line"></div>
+                <h3>Designer</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nemo facilis tempore suscipit maiores enim, reprehenderit modi quo deserunt inventore vel.</p>
+            </div>
+        </div>
+        <div class="single-box">
+            <div class="img-area"></div>
+            <div class="img-text">
+                <span class="header-text"><strong>Jason Doe</strong></span>
+                <div class="line"></div>
+                <h3>Designer</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nemo facilis tempore suscipit maiores enim, reprehenderit modi quo deserunt inventore vel.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

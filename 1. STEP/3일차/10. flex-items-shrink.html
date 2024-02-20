@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .flex-container {
+        display: flex;
+        align-items: stretch;
+        background-color: #f1f1f1;
+      }
+
+      .flex-container > div {
+        background-color: DodgerBlue;
+        color: white;
+        width: 100px;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The flex-shrink Property</h1>
+
+    <p>
+      shrink는 '수축'이라는 뜻 flex-shrink는 flex-grow와 쌍을 이루는 속성으로,
+      아이템이 flex-basis의 값보다 작아질 수 있는지를 결정합니다.
+      flex-shrink에는 숫자값이 들어가는데, 몇이든 일단 0보다 큰 값이 세팅이 되면
+      해당 아이템이 유연한(Flexible) 박스로 변하고 flex-basis보다 작아집니다.
+      기본값이 1이기 때문에 따로 세팅하지 않았어도 아이템이 flex-basis보다
+      작아질 수 있었습니다.
+    </p>
+
+    <div class="flex-container">
+      <div>1</div>
+      <div>2</div>
+      <div style="flex-shrink: 0">3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+    </div>
+  </body>
+</html>

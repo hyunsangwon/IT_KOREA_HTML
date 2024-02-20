@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 600px;
+        height: 300px;
+        margin: 50px auto;
+        border: 1px solid black;
+        position: relative;
+        padding: 20px;
+      }
+      .absolute {
+        width: 200px;
+        height: 100px;
+        border: 1px solid red;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+      }
+      .absolute2 {
+        width: 200px;
+        height: 100px;
+        border: 1px solid red;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4>Hello World</h4>
+      <div class="absolute">
+        <h4>Absolute</h4>
+      </div>
+      <div class="absolute2">
+        <h4>Absolute</h4>
+      </div>
+    </div>
+  </body>
+</html>

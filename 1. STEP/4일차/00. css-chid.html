@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 자식 선택자 : > 기호를 이용하여 특정 요소의 자식 요소만 스타일 적용 */
+        .example01 > p{
+            color: red;
+        }
+        /* 하위 선택자 : 공백을 사용하여 특정 요소의 모든 하위 요소를 대상으로 스타일 적용 */
+        .example02 p{
+            color: red;
+        }
+        .example03{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- css선택자를 사용하여 특정 요소의 하위 요소에 스타일을 적용하는 방법은 
+        여러가지가 있다.
+        1. 자식 선택자
+        2. 하위 선택자
+        3. 클래스 및 ID 선택자
+    -->
+    <div class="example01">
+        <p>안녕하세요, 버거킹입니다.</p>
+    </div>
+    <div class="example02">
+        <div>
+            <p>안녕하세요, 맥도날드입니다.</p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <p class="example03">안녕하세요, 롯데리아입니다.</p>
+        </div>
+    </div>
+</body>
+</html>
