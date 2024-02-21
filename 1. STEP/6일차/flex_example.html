@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .container  {
+            height: 50vh;
+            display: flex;
+            border: 1px solid black;
+        }
+        .bg{
+            width: 200px;
+            height: 100%;
+            /* border: 1px solid red; */
+            background-size: cover;
+            background-position: 50%;
+        }
+        .bg:nth-child(1) {
+            background-image: url(images/photo-1464468164664-850fcaf6be4a.jpg);
+            cursor: pointer;
+        }
+        .bg:nth-child(2) {
+            background-image: url(images/photo-1482398650355-d4c6462afa0e.jpg);
+            cursor: pointer;
+        }
+        .bg:nth-child(3) {
+            background-image: url(images/photo-1498323094960-d1a30fae4c5c.jpg);
+            cursor: pointer;
+        }
+        .bg:nth-child(4) {
+            background-image: url(images/open-door.jpg);
+            cursor: pointer;
+        }
+        .bg:nth-child(1):hover{
+            opacity: 0.65;
+            flex-grow: 2;
+        }
+        .bg:nth-child(2):hover{
+            opacity: 0.65;
+        }
+        .bg:nth-child(3):hover{
+            opacity: 0.65;
+        }
+        .bg:nth-child(4):hover{
+            opacity: 0.65;
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+        <div class="bg"></div>
+        <div class="bg"></div>
+        <div class="bg"></div>
+        <div class="bg"></div>
+     </div>
+</body>
+</html>
