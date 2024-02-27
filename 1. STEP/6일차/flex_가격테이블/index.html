@@ -12,32 +12,27 @@
         box-sizing: border-box;
       }
       .plan {
-        /* Auto is not a valid value for padding property */
-        margin: 30px auto 30px;
-        width: 90%;
-        height: auto;
+        margin: 30px auto;
       }
       .title h1 {
         text-align: center;
-        padding-top: 50px;
+        margin-top: 50px;
         margin-bottom: 30px;
       }
-      .row {
+      .container {
         display: flex;
         justify-content: space-around;
+        /* border는 확인용, 지우셔도 됩니다~!  */
         border: 1px solid black;
       }
       .item {
+        /* border-radius 모서리를 둥글게~ */
         border-radius: 10px;
         background-color: #1f283b;
         padding: 2% 6%;
         color: #fff;
         text-align: center;
       }
-      .item:nth-child(1) {
-        /* margin-right: 30px; */
-      }
-
       .item p {
         font-size: 22px;
       }
@@ -57,32 +52,17 @@
       .item ul li {
         margin: 15px 0;
       }
-      .item button {
-        width: 100%;
-        padding: 14px 0;
-        background: transparent;
-        color: #fff;
-        font-size: 15px;
-        border: 1px solid #e33058;
-        border-radius: 6px;
-        cursor: pointer;
-        margin-top: 30px;
-      }
-      .item button:hover {
-        background-color: #e33058;
-      }
     </style>
   </head>
   <body>
-    <div class="container">
       <div class="plan">
         <div class="title">
           <h1>Choose your plan</h1>
         </div>
-        <div class="row">
+        <div class="container">
           <div class="item">
             <p>Starter</p>
-            <h2>19$ <span>/month</span></h2>
+            <h2>19$</h2>
             <ul>
               <li>1 Website</li>
               <li>10 GB Disk Space</li>
@@ -91,11 +71,10 @@
               <li>No SSL Certificate</li>
               <li>Limited Support</li>
             </ul>
-            <button>Add to Cart</button>
           </div>
           <div class="item">
             <p>Starter</p>
-            <h2>19$ <span>/month</span></h2>
+            <h2>19$</h2>
             <ul>
               <li>1 Website</li>
               <li>10 GB Disk Space</li>
@@ -104,11 +83,10 @@
               <li>No SSL Certificate</li>
               <li>Limited Support</li>
             </ul>
-            <button>Add to Cart</button>
           </div>
           <div class="item">
             <p>Starter</p>
-            <h2>19$ <span>/month</span></h2>
+            <h2>19$</h2>
             <ul>
               <li>1 Website</li>
               <li>10 GB Disk Space</li>
@@ -117,10 +95,8 @@
               <li>No SSL Certificate</li>
               <li>Limited Support</li>
             </ul>
-            <button>Add to Cart</button>
           </div>
         </div>
       </div>
-    </div>
   </body>
 </html>
