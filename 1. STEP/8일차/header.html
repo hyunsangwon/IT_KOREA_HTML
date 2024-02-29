@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        li, a, button{
+            font-family: 500;
+            font-size: 16px;
+            color: #edf0f1;
+            text-decoration: none;
+        }
+        .nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10%;
+            background-color: #24252A;
+        }
+        .logo{
+            flex: 0 0 10vw;
+            font-size: 30px;
+            background-color:#ececec;
+            border: 1px solid red;
+        }
+        ul li{
+            list-style: none;
+            border: 1px solid red;
+            padding: 0px 20px;
+        }
+        .nav-link ul{
+            border: 1px solid red;
+            display: flex;
+        }
+        div.contact{
+            border: 1px solid red;
+        }
+        button{
+            padding: 9px 25px;
+            background-color: rgba(0, 136, 169, 1);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+             로고 영역
+        </div>
+        <div class="nav-link">
+            <ul>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Project</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div class="contact">
+            <button>contact</button>  
+        </div>
+    </div>
+</body>
+</html>
