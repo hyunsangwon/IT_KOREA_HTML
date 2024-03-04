@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* before와 after는 가상태그라고 한다.
+        ::before는 해당 태그 뒤에
+        ::after는 해당 태그 앞에 사용한다.
+        */
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .name-list li::before{
+            content: "😊";
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        .name-list li::after{
+            content: "😊";
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        .red-border{
+            border: 1px solid red;
+            width: 300px;
+            height: 400px;
+        }
+        /*  display: block;을 해야 크기가 지정된다. */
+        .red-border::after{
+            content: "#";
+            width: 200px;
+            height: 200px;
+            display: block;
+            border: 1px solid red;
+        }
+        .red-border::before{
+            content: "#";
+            display: block;
+            border: 1px solid blueviolet;
+            padding: 5%;
+        }
+        .black-border{
+            border: 1px solid black;
+            width: 400px;
+            height: 300px;
+        }
+        .black-border p{
+            display: inline-block;
+        }
+        .black-border::before{
+            content: "";
+            background-image: url( "img/snail.gif" );
+            background-size: 40px 40px;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Example 01</h2>
+    <ul class="name-list">
+        <li>John</li>
+        <li>Michael</li>
+        <li>Simpson</li>
+        <li>Johnson</li>
+    </ul>
+    <h2>Example 02</h2>
+    <!-- 태그안에있는 contents를 기준으로 before, after -->
+    <div class="red-border">
+        안녕?
+    </div>
+    <h2>Example 03</h2>
+    <div class="black-border">
+        <p>빨강 달팽이</p>
+    </div>
+</body>
+</html>
