@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        /* Tours section*/
+        .row{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+            border: 2px solid black;
+        }
+        .row .col{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid black;
+            padding: 1%;
+        }
+        .tours{
+            width: 80%;
+            margin: 80px auto;
+            border: 3px solid black;
+        }
+        .content-col{
+            width: 40%;
+        }
+        .content-col h1{
+            font-size: 5vmin;
+            color: #484872;
+            border: 2px solid black;
+        }
+        .content-col p{
+            padding: 0;
+            margin: 30px auto;
+        }
+        .content-col .ctn{
+            margin-left: -100px;
+        }
+        .image-col{
+            width: 60%;
+            border: 3px solid black;
+        }
+        .tours .image-gallery{
+            display: flex;
+            flex-wrap: wrap;
+            border: 3px solid black;
+            padding: 2%;
+        }
+        .tour-img{
+            width: 250px;
+            height: 200px;
+            margin: 10px;
+            border: 3px solid black;
+        }
+        .tour-img img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- tours section -->
+    <div class="tours">
+        <div class="row">
+            <div class="col content-col">
+                <h1>UPCOMING TOURS & DESTINATION</h1>
+            </div>
+            <div class="col image-col">
+                <div class="image-gallery">
+                    <div class="tour-img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="tour-img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="tour-img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="tour-img">
+                        <img src="" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
