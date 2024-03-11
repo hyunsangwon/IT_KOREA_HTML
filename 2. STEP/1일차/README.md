@@ -63,7 +63,8 @@
 5. padding, margin
     - padding : border와 contents 여백 조절
     - margin : border와 border 여백 조절
-
+    - 2문제 정도
+    
 6. position
     - static
     - relative
