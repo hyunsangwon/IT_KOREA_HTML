@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .black-box {
+        width: 200px;
+        border: 1px solid black;
+        position: relative;
+      }
+      .red-box {
+        width: 100px;
+        height: 500px;
+        border: 1px solid red;
+        position: absolute;
+        left: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 부모 크기를 명시하지 않아도 자식 크게에 맞게 
+        배치가 된다.
+    -->
+    <div class="black-box">
+      <p>Hello World</p>
+      <div class="red-box">
+        <!-- absolute position
+                1. 부모 요소 내부에 속박되지 않고, 독립된 배치 문맥(positioning context)을 가지게 됨
+                2. 요소를 기본적으로 브라우저 화면(viewport) 상에서 어디든지 원하는 위치에 자유롭게 배치시킬 수 있으며, 심지어 부모 요소 위에 겹쳐서 배치할 수도 있음
+            -->
+
+        <!-- display none -> block -->
+      </div>
+    </div>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae doloribus, voluptatum consectetur ducimus aliquid rem vero sapiente sed ex quia
+      et praesentium maxime corrupti deleniti architecto? Magnam assumenda quaerat omnis!
+    </p>
+  </body>
+</html>

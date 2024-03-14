@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .dropdown {
+        position: relative;
+      }
+      .dropdown button {
+        background-color: #ececec;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+      }
+      .dropdown a {
+        display: block;
+        color: black;
+        text-decoration: none;
+        padding: 10px 15px;
+      }
+      .dropdown .content {
+        display: none;
+        position: absolute;
+        background-color: hsl(0, 0%, 95%);
+        width: 100px;
+        box-shadow: 2px 2px 5px black;
+      }
+      .dropdown:hover .content {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <button>Food</button>
+      <div class="content">
+        <a href="">Apple</a>
+        <a href="">Orange</a>
+        <a href="">Banana</a>
+      </div>
+    </div>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae doloribus, voluptatum consectetur ducimus aliquid rem vero sapiente sed ex quia
+      et praesentium maxime corrupti deleniti architecto? Magnam assumenda quaerat omnis!
+    </p>
+  </body>
+</html>
