@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 40px 80px;
+      }
+      .item {
+        width: 180px;
+        text-align: center;
+        padding: 25px 15px;
+        box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+        border: 1px solid #cce7d0;
+        border-radius: 4px;
+        margin: 15px 0;
+      }
+      .item h6 {
+        padding: 9px 8px 6px 8px;
+        border-radius: 4px;
+        color: #088178;
+        background-color: #fddde4;
+      }
+      /* 반응형 */
+      @media (max-width: 799px) {
+        .container {
+          justify-content: center;
+        }
+        .item {
+          margin: 15px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 반응형
+        PC,태블릿 PC, 핸드폰 사이즈에 맞게 자동으로 레이아웃이 변경 됨
+    -->
+    <div class="container">
+      <div class="item">
+        <h6>아이템</h6>
+      </div>
+      <div class="item">
+        <h6>아이템</h6>
+      </div>
+      <div class="item">
+        <h6>아이템</h6>
+      </div>
+      <div class="item">
+        <h6>아이템</h6>
+      </div>
+      <div class="item">
+        <h6>아이템</h6>
+      </div>
+      <div class="item">
+        <h6>아이템</h6>
+      </div>
+    </div>
+  </body>
+</html>

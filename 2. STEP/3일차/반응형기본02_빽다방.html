@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .header {
+        width: 100vw;
+        height: 500px;
+        padding: 0 10px;
+        background-image: url('./images/bg-menu2.jpg');
+        background-position: bottom;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .header-content {
+        text-align: center;
+      }
+      .header-content h2 {
+        font-size: 3rem;
+        font-weight: 400;
+      }
+      .line {
+        width: 40px;
+        height: 3px;
+        background: black;
+        margin: 15px auto;
+        border-radius: 5px;
+      }
+      .page-tab {
+        display: flex;
+        width: 50%;
+        text-align: center;
+      }
+      .page-tab li {
+        list-style: none;
+        flex: 1;
+        padding: 10px 0;
+        border: 1px solid #bfbfbf;
+        font-size: 1rem;
+        background: #fff;
+      }
+      .page-tab li a {
+        text-decoration: none;
+        color: #909090;
+      }
+      .page-tab .on {
+        color: #000;
+        background: #ffe600;
+      }
+      @media (max-width: 799px) {
+        .page-tab {
+          flex-direction: column;
+          width: 85vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--음식사진 예제
+      -->
+    <div class="header">
+      <div class="header-content">
+        <h2>커피</h2>
+        <div class="line"></div>
+        <p>뉴 크롭 원두를 사용하여 더욱더 신선한 커피 메뉴를 만나보세요.</p>
+      </div>
+      <ul class="page-tab">
+        <li><a href="https://paikdabang.com/menu/menu_new/">신메뉴</a></li>
+        <li class="on"><a href="https://paikdabang.com/menu/menu_coffee/">커피</a></li>
+        <li><a href="https://paikdabang.com/menu/menu_drink/">음료</a></li>
+        <li><a href="https://paikdabang.com/menu/menu_dessert/">아이스크림/디저트</a></li>
+        <li><a href="https://paikdabang.com/menu/menu_ccino/">빽스치노</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

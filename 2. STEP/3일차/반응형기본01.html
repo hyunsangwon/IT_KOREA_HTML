@@ -1,8 +1,25 @@
+<!-- Document Type Declaration 문자 형식 선언 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- UTF-8은 문자인코딩(인코딩은 컴퓨터가 읽는 것)으로 쉽게 설명해
+     점점 컴퓨터가 널리 보급되면서 여러 나라에 언어가 사용됨.
+     여러 나라 언어를 사용하다보니 한계가 있음 -> UTF-8이라는 문자 인코딩으로 맞추기로 암묵적으로 합의
+    -->
     <meta charset="UTF-8" />
+    <!-- 
+      viewport(vw, vh)는 애플이 아이폰, 아이패드 등 자사제품을 모바일 브라우저와 호환하기 위해 만들었습니다.
+      viewport는 디바이스 크기에 맞게 vw, vh 크기가 자동으로 결정된다.
+     -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="대전코딩, 퍼블리싱, 프론트개발자" />
+    <meta property="article:author" content="Sangwon Hyun" />
+    <!-- 
+      메타 데이터는 : 데이터에 대한 정보를 표현한다.(즉, HTML에 대한 정보가 들어간다.)
+      메타 데이터는 : 검색엔진(키워드 검색)에 사용된다.
+      일반적으로 문자인코딩, 페이지 설명, 키워드, 문서 작성자가 들어간다.
+      항상 head 요소 안에 들어간다.
+     -->
     <title>Document</title>
     <style>
       * {
@@ -10,62 +27,19 @@
         margin: 0;
         box-sizing: border-box;
       }
-      .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        padding: 40px 80px;
-      }
-      .item {
-        width: 180px;
-        text-align: center;
-        padding: 25px 15px;
-        box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
-        border: 1px solid #cce7d0;
-        border-radius: 4px;
-        margin: 15px 0;
-      }
-      .item h6 {
-        padding: 9px 8px 6px 8px;
-        border-radius: 4px;
-        color: #088178;
-        background-color: #fddde4;
-      }
-      /* 반응형 */
-      @media (max-width: 799px) {
-        .container {
-          justify-content: center;
-        }
-        .item {
-          margin: 15px 15px;
-        }
+      div {
+        background-color: blue;
+        width: 100vw;
+        height: 180px;
       }
     </style>
   </head>
   <body>
-    <!-- 반응형
-        PC,태블릿 PC, 핸드폰 사이즈에 맞게 자동으로 레이아웃이 변경 됨
-    -->
-    <div class="container">
-      <div class="item">
-        <h6>아이템</h6>
-      </div>
-      <div class="item">
-        <h6>아이템</h6>
-      </div>
-      <div class="item">
-        <h6>아이템</h6>
-      </div>
-      <div class="item">
-        <h6>아이템</h6>
-      </div>
-      <div class="item">
-        <h6>아이템</h6>
-      </div>
-      <div class="item">
-        <h6>아이템</h6>
-      </div>
-    </div>
+    <h1>안녕하세요</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus fuga, magnam amet dolores vitae eum consequuntur deleniti labore repudiandae nemo at doloremque ipsam suscipit. Mollitia
+      quaerat temporibus eos veniam repellendus?
+    </p>
+    <div></div>
   </body>
 </html>
