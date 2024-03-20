@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      .header {
+        position: relative;
+        height: 80px;
+        background-color: #11101b;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+      }
+      .logo {
+        font-size: 28px;
+        color: #fefefe;
+        font-weight: bold;
+      }
+      .hamburger {
+        display: none;
+      }
+      .nav-bar ul {
+        display: flex;
+      }
+      .nav-bar ul li a {
+        /* display: block; */
+        color: #fefefe;
+        font-size: 20px;
+        padding: 10px 25px;
+        margin: 0 5px;
+      }
+      .nav-bar ul li a:hover {
+        color: #11101b;
+        background-color: #fefefe;
+        border-radius: 50px;
+      }
+      .nav-bar ul li a.active {
+        color: #11101b;
+        background-color: #fefefe;
+        border-radius: 50px;
+      }
+      .nav-bar.active {
+        height: 450px;
+      }
+      .nav-bar.active ul {
+        opacity: 1;
+      }
+      @media only screen and (max-width: 1320px) {
+        .header {
+          padding: 0 50px;
+        }
+      }
+      @media only screen and (max-width: 1100px) {
+        .header {
+          padding: 0 30px;
+        }
+      }
+      @media only screen and (max-width: 900px) {
+        .hamburger {
+          display: block;
+          cursor: pointer;
+        }
+        .hamburger .line {
+          width: 30px;
+          height: 3px;
+          background-color: #fefefe;
+          margin: 6px 0;
+        }
+        .nav-bar {
+          /* display: none; */
+          position: absolute;
+          top: 80px;
+          left: 0;
+          right: 0;
+          width: 100vw;
+          background-color: #11101b;
+          transition: 0.4s;
+          height: 0;
+          border: 1px solid purple;
+        }
+        .nav-bar ul {
+          border: 1px solid red;
+          height: 50%;
+          flex-direction: column;
+          justify-content: space-between;
+          text-align: center;
+          margin-top: 80px;
+          transition: 0.5s;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">Soft Landing</div>
+      <div class="hamburger" onclick="openNav()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="nav-bar">
+        <ul>
+          <li><a href="" class="active">MENU1</a></li>
+          <li><a href="">MENU2</a></li>
+          <li><a href="">MENU3</a></li>
+          <li><a href="">MENU4</a></li>
+          <li><a href="">MENU5</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    function openNav() {
+      let navbar = document.querySelector('.nav-bar');
+      //toggle 메서드는 DOM(Document Object Model) 요소의 클래스 리스트에 클래스를 추가하거나 제거하는 역할
+      //클래스가 존재하면 제거되고, 없으면 추가
+      navbar.classList.toggle('active');
+    }
+  </script>
+</html>
