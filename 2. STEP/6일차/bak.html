@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+      }
+      .section {
+        display: flex;
+      }
+      .event-menu {
+        overflow: hidden;
+      }
+      .section .left {
+        flex: 0 0 60%;
+        border: 1px solid red;
+        position: relative;
+      }
+      .section .right {
+        flex: 0 0 40%;
+        border: 1px solid black;
+      }
+      .event-menu img {
+        width: 100%;
+        transition: 0.8s ease;
+      }
+      .event-menu:hover img {
+        transform: scale(1.1);
+      }
+      .menu-intro {
+        position: absolute;
+        width: 1200px;
+        border: 1px solid black;
+        top: 60px;
+        left: 30%;
+        z-index: 1;
+      }
+      .menu-intro > p {
+        font-size: 50px;
+        color: #071f60;
+        font-weight: 900;
+      }
+      .menu-contents {
+        margin: 25px 0 0;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.4em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section">
+      <div class="event-menu left">
+        <div class="menu-intro">
+          <p>VARIOUS</p>
+          <p>BEVERAGE</p>
+          <div class="menu-contents">
+            <p>에이드, 티, 주스 등 취향대로</p>
+            <p>골라 먹는 즐거움!</p>
+          </div>
+        </div>
+        <img src="images/main_sec3.jpg" alt="" />
+      </div>
+      <div class="event-menu right">
+        <img src="images/main_sec4.jpg" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
