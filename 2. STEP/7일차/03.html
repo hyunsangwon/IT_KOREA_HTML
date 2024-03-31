@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .login-box {
+        margin: 10px auto;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      input 
+      select box(combo)
+      raddio
+      button
+    -->
+    <div class="login-box">
+      <label for="name">이름 :</label>
+      <input id="name" type="text" value="홍길동" />
+      <label for="hobby">취미 :</label>
+      <input id="hobby" type="text" value="운동" />
+      <select id="menu">
+        <option value="americano" selected>아메리카노</option>
+        <option value="caferatte">카페라떼</option>
+        <option value="cafemoca">카페모카</option>
+        <option value="icetee">아이스티</option>
+      </select>
+      <!-- checkbox -->
+      <div>
+        <input type="checkbox" id="syrup" checked />
+        <label for="syrup">시럽추가</label>
+      </div>
+      <div>
+        <input type="checkbox" id="shot" />
+        <label for="shot">샷추가</label>
+      </div>
+      <!-- radio btn -->
+      <div>
+        <input type="radio" id="r" name="size" value="r" checked />
+        <label for="r">R</label>
+      </div>
+      <div>
+        <input type="radio" id="l" name="size" value="l" />
+        <label for="l">L</label>
+      </div>
+      <button>주문하기</button>
+    </div>
+  </body>
+  <script>
+    //input에 name 가져오기
+    var name = document.getElementById('name').value;
+    console.log('이름 ?' + name);
+    var hobby = document.getElementById('hobby').value;
+    console.log('취미 ?' + hobby);
+    var selectedMenu = document.getElementById('menu').value;
+    console.log('선택한 메뉴 ?' + selectedMenu);
+  </script>
+</html>
