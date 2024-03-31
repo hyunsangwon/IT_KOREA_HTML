@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .red-box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 클래스 이름은 중복 가능한거 아시죠? -->
+    <div id="x" class="red-box">첫번째 박스</div>
+    <div id="y" class="red-box">두번째 박스</div>
+  </body>
+  <script>
+    // DOM(Document Object Model)을 직접 컨트롤하기 위해 사용
+    // 미국은 0부터 시작
+    // getElementsByClassName 클래스 이름으로 접근
+    var element = document.getElementsByClassName('red-box')[0];
+    console.log(element); //태그가 출력
+    element.style.backgroundColor = 'green'; //속성값 변경
+    element.style.height = '100px';
+    element.style.marginTop = '50px';
+    console.log(element.style); //css 속성을 확인할 수 있음
+    console.log('배경색은 ? ' + element.style.backgroundColor);
+
+    //id로 접근
+    //id는 유일해야 한다.
+    console.log(document.getElementById('x'));
+  </script>
+</html>
