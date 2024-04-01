@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .join-box {
+        border: 1px solid #ececec;
+        padding: 5px;
+        width: 500px;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .join-box > div {
+        padding: 1%;
+        margin-top: 10px;
+        border: 1px solid black;
+      }
+      .join-box input {
+        width: 50%;
+        padding: 5px;
+      }
+      .join-box button {
+        width: 100%;
+        background-color: azure;
+        padding: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="join-box">
+      <h2>회원가입</h2>
+      <div>
+        <label for="userId">아이디 : </label>
+        <input id="userId" type="text" placeholder="아이디를 입력하세요..." />
+      </div>
+      <div>
+        <label for="userPw">비밀번호 : </label>
+        <input id="userPw" type="password" placeholder="비밀번호를 입력하세요..." />
+      </div>
+      <div>
+        <label for="userName">닉네임 : </label>
+        <input id="userName" type="text" placeholder="비밀번호를 입력하세요..." />
+      </div>
+      <div>
+        <label for="job">직업선택 : </label>
+        <select id="job">
+          <option value="front" selected>프론트개발자</option>
+          <option value="bak">백엔드개발자</option>
+          <option value="network">네트워크개발자</option>
+          <option value="dba">데이터베이스관리자</option>
+        </select>
+      </div>
+      <div>
+        <fieldset>
+          <legend>취미선택 :</legend>
+          <div>
+            <input type="checkbox" id="exercise" checked />
+            <label for="exercise">운동</label>
+          </div>
+          <div>
+            <input type="checkbox" id="movie" />
+            <label for="movie">영화감상</label>
+          </div>
+        </fieldset>
+      </div>
+      <div>
+        <fieldset>
+          <legend>성별선택 :</legend>
+          <div>
+            <input type="radio" id="m" name="size" value="m" checked />
+            <label for="m">남자</label>
+          </div>
+          <div>
+            <input type="radio" id="w" name="size" value="w" />
+            <label for="w">여자</label>
+          </div>
+        </fieldset>
+      </div>
+      <div>
+        <button onclick="join()">회원가입</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function join() {
+      //여기에 작성할 것
+      //버튼을 클릭했을 때 작성한 내용과 선택한 항목이 출력되게 할 것
+    }
+  </script>
+</html>

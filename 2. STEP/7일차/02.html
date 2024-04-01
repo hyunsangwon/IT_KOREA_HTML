@@ -28,6 +28,7 @@
     // DOM(Document Object Model)을 직접 컨트롤하기 위해 사용
     // 미국은 0부터 시작
     // getElementsByClassName 클래스 이름으로 접근
+    // [] 배열이라고 함
     var element = document.getElementsByClassName('red-box')[0];
     console.log(element); //태그가 출력
     element.style.backgroundColor = 'green'; //속성값 변경
@@ -44,7 +45,6 @@
     elementId.style.backgroundColor = 'pink'; //id가 y인 요소 색깔변경
 
     /*
-    if할 때 
     엘리먼트의 속성이라 함은, 태그 내의 인-라인으로 정의한 것들을 말한다.
     즉, 인라인으로 표기된 스타일만 가져온다.
     외부에 선언된 스타일을 참조하여 브라우저에 그려지는 것이지, 실제로 DOM 영역의 해당 노드들에게 속성으로 적용하는 것이 아니기 때문이다.
