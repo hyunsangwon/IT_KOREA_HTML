@@ -25,35 +25,17 @@
         border: 1px solid rgba(0, 0, 0, 0.06);
         border-radius: 4px;
       }
-      .active {
-        cursor: not-allowed;
-        background-color: #ececec;
-        color: black;
-      }
     </style>
   </head>
   <body>
+    <!-- MBTI -->
     <div class="form">
       <div>
-        <input id="userId" type="text" placeholder="회원아이디를 입력하시오..." />
+        <input id="userId" type="text" placeholder="" />
       </div>
       <div>
-        <button id="btn" class="btn" onclick="go()">입장확인</button>
+        <button id="btn" class="btn" onclick="make()">만들기</button>
       </div>
     </div>
   </body>
-  <script>
-    function go() {
-      var inputUserId = document.getElementById('userId').value;
-      if (inputUserId == '') {
-        alert('이름을 입력해주세요!');
-      } else if (inputUserId == 'smith') {
-        alert('입장불가!');
-        document.getElementById('btn').classList.add('active');
-        document.getElementById('btn').disabled = true;
-      } else {
-        alert('입장완료!');
-      }
-    }
-  </script>
 </html>
