@@ -8,6 +8,21 @@
   <body>
     <script>
       /*
+        프로그래밍?
+        컴퓨터적 사고력을 키워야 한다.
+        수학은 못해도 상관없다. 사칙연산말 할줄 알면된다.
+
+        오늘부터 공부 방법
+        1. javascript 70%
+        2. css 20%
+        3. html 10%
+        javscript가 탄탄해야 react를 공부할 수 있다.
+        react는 쉽게 생각해 javascript 상위버전이라 생각하면 된다.
+
+        기업에서 원하는 신입개발자
+        1. 비전공이면 컴퓨터적 사고력이 있는가? (문제 해결력)
+        2. 어떤 프로젝트를 해봤는가? (개인 프로젝트 보다 팀 프로젝트가 좋음)
+
         1. javascript?
         - 95년 생
         - java와 javascript는 서로 다른 언어. 인도와 인도네시아가 다른 나라인 것 처럼
@@ -60,6 +75,54 @@
       var sum = studentA + studentB + studentC + studentD;
       sum = sum / 4;
       console.log('평균 점수는 ? ' + sum);
+
+      //대입연산자 주의
+      var x = 20;
+      console.log('x의 현재값은 ? ' + x);
+      x = 10;
+      console.log('x의 현재값은 ? ' + x);
+      //x는 더이상 20이 아니고 10이다.
+      //대입은 이전에 있던 값을 무시하고 덮어씌우기가 된다.
+      var y = '호빵맨';
+      console.log('y의 현재값은 ? ' + y);
+      y = '세균맨';
+      console.log('y의 현재값은 ? ' + y);
+
+      //문자 + 문자
+      var str = '문자A';
+      var str2 = '문자B';
+      var str3 = str + str2;
+      console.log(str3); //문자 합치기
+
+      //응용
+      var z = 50;
+      z = z + z;
+      console.log('z의 현재 값은?' + z);
+
+      /*
+        Quiz
+        1. 치즈피자 출력하기
+        2. p 의 값은?
+      */
+      var m = '치즈';
+      var pizza = '피자';
+
+      var p = 20;
+      p = 10 * 10;
+
+      //사칙연산을 이용한 거스름돈 로직 풀어보기
+      var price = 200000;
+      //5만원 4장
+      var oman = 50000;
+      var omanCount = price / oman;
+      console.log('5만원은 총 ' + omanCount + ' 장 입니다.');
+
+      //몇년생인지 구하기
+      var age = 32;
+      var year = 2024;
+      var answer = 0;
+      answer = year - age + 1;
+      console.log('상원쌤은  ' + answer + '년 생입니다.');
     </script>
   </body>
 </html>
