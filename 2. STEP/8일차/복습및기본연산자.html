@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //연산 복습
+    var money = 65000;
+    console.log('가지고 있는 돈 : ' + money);
+    //5만원짜리 1장과 나머지돈은 5천원으로 바꿔 주세요~
+    var oman = 50000;
+    var ocheon = 5000;
+    /*
+    Math.ceil() : 소수점 올림, 정수 반환
+    Math.floor() : 소수점 버림, 정수 반환
+    Math.round() : 소수점 반올림, 정수 반환
+    */
+    var omanCount = Math.floor(money / oman);
+    console.log('5만원 : ' + omanCount + ' 장');
+    money = money % oman;
+    console.log('남은 돈 : ' + money);
+
+    var ocheonCount = money / ocheon;
+    console.log('5천원 : ' + ocheonCount + ' 장');
+    money = money % ocheonCount;
+    console.log('남은 돈 : ' + money);
+
+    //증감
+    console.log('==============================');
+    var hp = 100;
+    console.log('현재 HP : ' + hp);
+    var monsetAttack = 40;
+    hp = hp - monsetAttack;
+    console.log('현재 HP : ' + hp);
+    hp++;
+    console.log('현재 HP : ' + hp);
+    // hp++; //후위증감자, 후에 값을 변화시킨다.
+    console.log('현재 HP : ' + hp++); //62? -> 61
+    //++hp; //전위증감자, 먼저 값을 증가
+    console.log('현재 HP : ' + ++hp);
+
+    var x = 0;
+    x = x++ * 2;
+    console.log(x);
+    x = ++x * 2;
+    console.log(x);
+
+    var y = 0;
+    var z = 0;
+    z = y++ * 2;
+    console.log(z); //0
+    console.log(z + y); //1
+
+    // 게임에서 많이 사용함
+  </script>
+</html>
