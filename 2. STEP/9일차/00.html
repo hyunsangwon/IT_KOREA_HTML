@@ -4,7 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .join-box {
+        border: 1px solid #ececec;
+        padding: 5px;
+        width: 500px;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .join-box > div {
+        padding: 1%;
+        margin-top: 10px;
+        border: 1px solid black;
+      }
+      .join-box input {
+        width: 50%;
+        padding: 5px;
+      }
+      .join-box button {
+        width: 100%;
+        background-color: azure;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .active {
+        cursor: not-allowed;
+        background-color: #ececec;
+        color: black;
+      }
+    </style>
   </head>
-  <body></body>
-  <script></script>
+  <body>
+    <div class="join-box">
+      <h2>입력 양식</h2>
+      <div>
+        <label for="userId">아이디를 입력하세요 : </label>
+        <input id="userId" type="text" />
+      </div>
+      <div>
+        <label for="password">비밀번호를 입력하세요 : </label>
+        <input id="password" type="password" />
+      </div>
+      <div>
+        <label for="rePassword">비밀번호를 입력하세요 : </label>
+        <input id="rePassword" type="password" />
+      </div>
+      <div>
+        <label for="nickName">닉네임을 입력하세요 : </label>
+        <input id="nickName" type="text" />
+      </div>
+      <div>
+        <label for="email">이메일 : </label>
+        <input id="email" type="password" />
+        <select id="emailDomain">
+          <option value="gmail" selected>@gmail.com</option>
+          <option value="naver">@naver.com</option>
+          <option value="daum">@daum.net</option>
+        </select>
+      </div>
+      <div>
+        <button onclick="doCheck()">결과확인</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function doCheck() {
+      //1. 문자 길이 확인
+      //2. if로 문자길이 제한하기
+      //3. return으로 아래 코드 막기
+      //4. 비밀번호 같은지 체크, 비밀번호는 8글자이상 16글자 이하
+      //5. select box 값 가져오기
+      //6. 빈값 체크
+      //7. 아이디와 닉네임 글자 수 제한
+      /*
+        document.getElementById('btn').classList.add('active');
+        document.getElementById('btn').disabled = true;
+      */
+    }
+  </script>
 </html>
