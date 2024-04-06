@@ -72,51 +72,42 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="item"><h2>Menu</h2></div>
-        <div class="item"><h2>My Menu</h2></div>
+        <div class="item"><h2>메뉴</h2></div>
+        <div class="item"><h2>장바구니</h2></div>
       </div>
       <div class="row">
         <div class="item">
-          <div class="col" onclick="removeItem(this)">곱창 파스타</div>
-          <div class="col" onclick="removeItem(this)">육회</div>
-          <div class="col" onclick="removeItem(this)">지코바</div>
-          <div class="col" onclick="removeItem(this)">빠에야</div>
-          <div class="col" onclick="removeItem(this)">알리오 올리오</div>
+          <div id="menu-1" class="col" onclick="selectMenu(this)">냉동삼겹살</div>
+          <div id="menu-2" class="col" onclick="selectMenu(this)">컵라면</div>
+          <div id="menu-3" class="col" onclick="selectMenu(this)">연어샐러드</div>
+          <div id="menu-4" class="col" onclick="selectMenu(this)">냉동볶음밥</div>
+          <div id="menu-5" class="col" onclick="selectMenu(this)">냉동만두</div>
         </div>
         <div id="myMenu" class="item"></div>
       </div>
       <div class="order-wrapper">
-        <button id="btn-order" type="button" onclick="doOrder()">주문</button>
-        <button id="btn-clear" type="button" onclick="doClear()">취소</button>
+        <button id="btn-order" type="button" onclick="order()">주문</button>
+        <button id="btn-clear" type="button" onclick="orderCancle()">취소</button>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
-      function removeItem(val) {
-        $('#myMenu').append(val);
+      function selectMenu(element) {
+        console.log(element.outerHTML); //String 형태
+        //옆에 장바구니에 옮기기
+        document.querySelector('#myMenu').innerHTML += element.outerHTML;
+        var selectedElementId = element.id; //선택한 메뉴 요소 id 가져오기
+        //querySelector는 id,name,class 모두 조회가 가능
+        console.log('ID : ' + selectedElementId);
+        document.querySelector('#' + selectedElementId).style.display = 'none';
       }
-      function doOrder() {
-        var len = $('#myMenu').children().length;
-        if (len < 1) {
-          alert('메뉴를 선택해주세요!');
-          return false;
-        }
-        var menu = '';
-        for (var i = 0; i < len; i++) {
-          if ($('#myMenu').children()[i].innerHTML === '곱창 파스타') {
-            alert($('#myMenu').children()[i].innerHTML + '재료소진 입니다.');
-            return false;
-          }
-          if (i == len - 1) {
-            menu += $('#myMenu').children()[i].innerHTML;
-            break;
-          }
-          menu += $('#myMenu').children()[i].innerHTML + ',';
-        }
-        confirm('선택한 메뉴는 ' + menu + ' 총' + len + '개를 주문하시겠습니까?.');
+      function order() {
+        //장바구니에 있는 메뉴 수 출력하기
+        var len = document.querySelector('#myMenu').children.length; //myMenu 자식요소 길이 가져오기
+        console.log('총 선택한 메뉴 수 : ' + len);
       }
-      function doClear() {
-        window.location.reload();
+      function orderCancle() {
+        //새로고침
+        location.reload();
       }
     </script>
   </body>
