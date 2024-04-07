@@ -1,1 +1,5 @@
-- while, for
+- while 복습
+- for, 배열
+- for each, map (리액트에서 자주 사용하는 for문)
+- append
+- naver
