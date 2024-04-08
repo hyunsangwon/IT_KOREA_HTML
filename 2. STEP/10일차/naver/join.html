@@ -10,47 +10,47 @@
   <body>
     <div class="member">
       <!-- 1. 로고 -->
-      <h2 class="title">NAVER</h2>
+      <h2 class="title">TITLE</h2>
 
       <!-- 2. 필드 -->
       <div class="field">
         <b>아이디</b>
-        <span class="placehold-text"><input type="text" /></span>
+        <span class="placehold-text"><input id="userId" type="text" /></span>
       </div>
       <div class="field">
         <b>비밀번호</b>
-        <input class="userpw" type="password" />
+        <input id="userpw" class="userpw" type="password" />
       </div>
       <div class="field">
         <b>비밀번호 재확인</b>
-        <input class="userpw-confirm" type="password" />
+        <input id="userpwConfirm" class="userpw-confirm" type="password" />
       </div>
       <div class="field">
         <b>이름</b>
-        <input type="text" />
+        <input id="userName" type="text" />
       </div>
 
       <!-- 3. 필드(생년월일) -->
       <div class="field birth">
         <b>생년월일</b>
         <div>
-          <input type="number" placeholder="년(4자)" />
-          <select>
-            <option value="">월</option>
-            <option value="">1월</option>
-            <option value="">2월</option>
-            <option value="">3월</option>
-            <option value="">4월</option>
-            <option value="">5월</option>
-            <option value="">6월</option>
-            <option value="">7월</option>
-            <option value="">8월</option>
-            <option value="">9월</option>
-            <option value="">10월</option>
-            <option value="">11월</option>
-            <option value="">12월</option>
+          <input id="birthYear" type="number" placeholder="년(4자)" />
+          <select id="birthMonth">
+            <option value="0">월</option>
+            <option value="1">1월</option>
+            <option value="2">2월</option>
+            <option value="3">3월</option>
+            <option value="4">4월</option>
+            <option value="5">5월</option>
+            <option value="6">6월</option>
+            <option value="7">7월</option>
+            <option value="8">8월</option>
+            <option value="9">9월</option>
+            <option value="10">10월</option>
+            <option value="11">11월</option>
+            <option value="12">12월</option>
           </select>
-          <input type="number" placeholder="일" />
+          <input id="birthDay" type="number" placeholder="일" />
         </div>
       </div>
 
@@ -58,32 +58,32 @@
       <div class="field gender">
         <b>성별</b>
         <div>
-          <label><input type="radio" name="gender" />남자</label>
-          <label><input type="radio" name="gender" />여자</label>
-          <label><input type="radio" name="gender" />선택안함</label>
+          <label><input type="radio" name="gender" value="남자" />남자</label>
+          <label><input type="radio" name="gender" value="여자" />여자</label>
+          <label><input type="radio" name="gender" value="선택안함" />선택안함</label>
         </div>
       </div>
 
       <!-- 5. 이메일_전화번호 -->
       <div class="field">
         <b>본인 확인 이메일<small>(선택)</small></b>
-        <input type="email" placeholder="선택입력" />
+        <input id="userEmail" type="email" placeholder="선택입력" />
       </div>
 
       <div class="field tel-number">
         <b>휴대전화</b>
-        <select>
-          <option value="">대한민국 +82</option>
+        <select id="koreaPhone">
+          <option value="82">대한민국 +82</option>
         </select>
         <div>
-          <input type="tel" placeholder="전화번호 입력" />
+          <input id="userPhone" type="tel" placeholder="전화번호 입력" />
           <input type="button" value="인증번호 받기" />
         </div>
-        <input type="number" placeholder="인증번호를 입력하세요" />
+        <input id="auth" type="text" placeholder="인증번호를 입력하세요" />
       </div>
 
       <!-- 6. 가입하기 버튼 -->
-      <input type="submit" value="가입하기" />
+      <input type="submit" value="가입하기" onclick="join()" />
 
       <!-- 7. 푸터 -->
       <div class="member-footer">
@@ -97,4 +97,33 @@
       </div>
     </div>
   </body>
+  <script>
+    //id 가져오기
+    //1. getElementById , querySelector 설명
+    //2. 빈값 체크
+    //3. 비밀번호 일치 확인
+    //4. 연락처 - 제외
+    //5. 인증번호 숫자만 받기 (정규표현식)
+    function join() {
+      var userId = document.querySelector('#userId').value;
+      console.log('userId : ' + userId);
+      var userPhone = '010-1111-2222';
+      // replace, replaceAll
+      userPhone = userPhone.replaceAll('-', '');
+      console.log(userPhone);
+      /*
+        ^ : 문자열의 시작을 나타냄
+        [0-9] : 대상
+        + : 문자 1개 이상을 의미
+        $ : 문자열의 끝
+      */
+      var numberRegex = /^[0-9]+$/; // 숫자만 체크
+      var auth = document.querySelector('#auth').value;
+      console.log(auth);
+      console.log('인증번호 결과 : ' + regex.test(auth));
+      var koreaRegex = /^[ㄱ-ㅎ|가-힣]+$/; //한글만 체크
+      var engRegex = /^[a-z|A-Z]+$/; //영어만 체크
+      //6. 정지먹은 연락처 거르기
+    }
+  </script>
 </html>
