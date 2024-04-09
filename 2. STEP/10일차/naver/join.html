@@ -10,7 +10,7 @@
   <body>
     <div class="member">
       <!-- 1. 로고 -->
-      <h2 class="title">TITLE</h2>
+      <h2 class="title">NAVER</h2>
 
       <!-- 2. 필드 -->
       <div class="field">
@@ -98,32 +98,91 @@
     </div>
   </body>
   <script>
-    //id 가져오기
-    //1. getElementById , querySelector 설명
-    //2. 빈값 체크
-    //3. 비밀번호 일치 확인
-    //4. 연락처 - 제외
-    //5. 인증번호 숫자만 받기 (정규표현식)
+    //가입하기 이벤트 생성
     function join() {
+      //1. 아이디 값 가져오기
       var userId = document.querySelector('#userId').value;
-      console.log('userId : ' + userId);
-      var userPhone = '010-1111-2222';
-      // replace, replaceAll
-      userPhone = userPhone.replaceAll('-', '');
-      console.log(userPhone);
+      console.log('유저 아이디 : ' + userId);
+      //오잉? 한글로 아이디가 만들어짐...
+      //2. 아이디는 영어만 입력할 수 있게 하기(한글 금지)
+      //정규표현식
       /*
-        ^ : 문자열의 시작을 나타냄
-        [0-9] : 대상
-        + : 문자 1개 이상을 의미
-        $ : 문자열의 끝
+        ^ : 문자열 시작
+        [a-z|A-Z] : 범위 대상
+        + : 문자가 1개 이상이다
+        $ : 문자열 끝
       */
-      var numberRegex = /^[0-9]+$/; // 숫자만 체크
-      var auth = document.querySelector('#auth').value;
-      console.log(auth);
-      console.log('인증번호 결과 : ' + regex.test(auth));
-      var koreaRegex = /^[ㄱ-ㅎ|가-힣]+$/; //한글만 체크
-      var engRegex = /^[a-z|A-Z]+$/; //영어만 체크
-      //6. 정지먹은 연락처 거르기
+      var justEnglish = /^[a-z|A-Z]+$/;
+      var idResult = justEnglish.test(userId); //영어가 맞으면 true 아니면 false를 반환
+      if (!idResult) {
+        //영어가 아니라면?
+        alert('아이디는 영어로 입력해주세요.');
+        return false; //아래 코드를 실행하지 않게 return으로 막아주자.
+      }
+      // 비밀번호 가져오기
+      var userPassword = document.querySelector('#userpw').value;
+      console.log('비밀번호 : ' + userPassword);
+      var userpwConfirm = document.querySelector('#userpwConfirm').value;
+      console.log('비밀번호 재입력 : ' + userpwConfirm);
+
+      if (userPassword != userpwConfirm) {
+        //비밀번호와 비밀번호 재확인과 값이 다르다면?
+        alert('비밀번호가 일치하지 않습니다.');
+        return false;
+      }
+
+      var userName = document.querySelector('#userName').value; //이름 가져오기
+      //이름은 한글만 입력할 수 있게 만들기
+      //정규식
+      var justKoreaLan = /^[ㄱ-ㅎ|가-힣]+$/; //한글만 입력할 수 있는 정규표현식
+      var nameResult = justKoreaLan.test(userName); //정규표현식 테스트, 결과는 true 아니면 false!
+      if (!nameResult) {
+        //한글이 아니라면?
+        alert('이름은 한글로 입력해주세요.');
+        return false;
+      }
+
+      var birthYear = document.querySelector('#birthYear').value; //년도 가져오기
+      var birthMonth = document.querySelector('#birthMonth').value; //월 가져오기
+      var birthDay = document.querySelector('#birthDay').value; //일 가져오기
+      console.log(birthYear);
+      if (birthYear == '') {
+        //값을 입력하지 않았더라면?
+        alert('출생 년도를 입력해주세요!');
+        return false;
+      }
+      //quiz 월을 입력해주세요!, 일을 입력해주세요! 작성해볼 것 !
+      if (birthMonth == '0') {
+        //값을 입력하지 않았더라면?
+        alert('출생 월을 입력해주세요!');
+        return false;
+      }
+      if (birthDay == '') {
+        //값을 입력하지 않았더라면?
+        alert('출생 일을 입력해주세요!');
+        return false;
+      }
+      //전화번호 입력 시 하이픈 강제 제거하기
+      var userPhone = document.querySelector('#userPhone').value; //연락처 가져오기
+      //replaceAll 대체하다 라는 함수
+      //왼쪽에 문자열 대상, 오른쪽에 바꾸고자 하는 문자열
+      userPhone = userPhone.replaceAll('-', ''); //하이픈이 제거된 연락처가 다시 대입된다.
+      console.log('고객 연락처 : ' + userPhone);
+      document.querySelector('#userPhone').value = userPhone; //하이픈이 제거된 연락처 html에 표기
+
+      //인증번호에 숫자만 입력할 수 있게하기
+      //정규표현식 이용
+      var justNumber = /^[0-9]+$/; //숫자만 체크
+      var auth = document.querySelector('#auth').value; //인증번호 가져오기
+      var numberResult = justNumber.test(auth);
+      if (!numberResult) {
+        //숫자가 아니라면?
+        alert('인증번호는 숫자만 입력할 수 있습니다.');
+        return false;
+      }
+
+      //모두 완료되었을 때 아래 로직 실행
+      alert('회원가입이 되었습니다. 축하합니다.');
     }
   </script>
 </html>
