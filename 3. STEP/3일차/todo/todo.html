@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="todoWrapper">
+      <h1>TODO LIST</h1>
+      <form class="todoForm">
+        <input id="todo" type="text" class="todo-input" placeholder="오늘 예정 업무가 무엇입니까?" />
+        <button type="button" class="todo-btn" onclick="addTask()">Add Task</button>
+      </form>
+      <div id="todo-list">
+        <!-- 행 -->
+        <div id="todo_0" class="Todo">
+          <p class="incompleted">이마트 다녀오기</p>
+          <div>
+            <button class="todo-upt" onclick="doTask(this)">SUCCESS</button>
+            <button class="todo-del" onclick="delTask(this)">DELETE</button>
+          </div>
+        </div>
+        <!-- 행 끝 -->
+      </div>
+    </div>
+  </body>
+  <script>
+    function addTask() {
+      let todo = document.querySelector('#todo').value.trim(); //값을 가져 올 때 공백 제거까지.
+      //할일 5개만 작성
+      let len = document.querySelector('#todo-list').children.length;
+      console.log('길이 는 : ' + len);
+      if (len > 5) {
+        alert('많은계획은 좋지않아요^^');
+        return false;
+      }
+      //quiz. id값을 추가해보시오. HINT) 증감연산자 필요
+      let html = '<div class="Todo"><p class="incompleted">이마트 다녀오기</p><div><button class="todo-upt">UPDATE</button> <button class="todo-del">DELETE</button></div></div>';
+      document.querySelector('#todo-list').innerHTML += html;
+    }
+    function delTask(elements) {
+      console.log(elements);
+      console.log(elements.parentNode);
+      console.log(elements.parentNode.parentNode);
+      let id = elements.parentNode.parentNode.id;
+      console.log('ID : ' + id);
+      document.querySelector('#' + id).style.display = 'none';
+    }
+    function doTask(elements) {
+      console.log(elements);
+      console.log(elements.parentNode);
+      console.log(elements.parentNode.parentNode);
+      let id = elements.parentNode.parentNode.id;
+      console.log('ID : ' + id);
+      document.querySelector('#' + id + ' .incompleted').className = 'completed';
+      document.querySelector('#' + id + ' .todo-upt').style.display = 'none';
+    }
+  </script>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상원 NETFLIX</title>
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" />
+    <!-- 구글 무료 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+    <!-- 아이콘 -->
+    <!-- (구)버전임 신버전 쓰고 싶은사람은 fontawesome 사이트 접속해서 6버전 키 발급 받기
+        야크 털깎기(Yak Shaving)😥
+    -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* css 전역변수 처리 */
+      :root {
+        --whiteColor: #fff;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+      }
+      .container {
+        position: relative;
+        height: auto;
+      }
+      .movie-list {
+        padding: 20px;
+        background-color: #141414;
+      }
+      .site-title h2 {
+        text-align: center;
+        font-size: 38px;
+        color: #e50914;
+        font-weight: bold;
+      }
+      .movie-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+      }
+      .item {
+        flex-basis: 17%;
+        cursor: pointer;
+      }
+      .poster {
+        width: 100px;
+        height: auto;
+      }
+      .title {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 22px;
+        color: var(--whiteColor);
+      }
+      .year {
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+      }
+      .series-row {
+        display: flex;
+        justify-content: space-between;
+      }
+      .movie-section {
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+        background-color: #141414;
+        top: 100px;
+        display: flex;
+        width: auto;
+        margin: 100px auto;
+        justify-content: space-between;
+        padding: 40px 0;
+        color: #fff;
+        font-weight: 400;
+        border: 1px solid #e3e6f0;
+        border-radius: 0.35rem;
+      }
+      .back {
+        flex-basis: 10%;
+      }
+      .section-left {
+        flex-basis: 55%;
+      }
+      .section-right {
+        flex-basis: 25%;
+      }
+      .back a {
+        text-decoration: none;
+        color: #e74a3b;
+        font-size: 22px;
+        font-weight: 600;
+      }
+      .movie-title {
+        font-size: 40px;
+        color: #fff;
+      }
+      .movie-rating {
+        margin-top: 20px;
+        padding-left: 5px;
+        display: flex;
+        color: #79b8f3;
+      }
+      .movie-rating span {
+        margin-right: 20px;
+      }
+      .movie-plot {
+        margin-top: 20px;
+        line-height: 2rem;
+      }
+      .fa-star {
+        color: #ff9300;
+      }
+      .fa-thumbs-up {
+        color: #fafafa;
+      }
+      .fa-film {
+        color: rgb(191, 213, 214);
+      }
+      .fa-calendar {
+        color: peachpuff;
+      }
+      .section-right {
+        margin-left: 30px;
+      }
+      .movie-info > div span {
+        color: #79b8f3;
+      }
+      .movie-info > div span:first-child {
+        padding: 10px 0;
+        color: #fff;
+        font-weight: 600;
+        width: 100px;
+        display: inline-block;
+      }
+      /* 반응형 */
+      @media (max-width: 400px) {
+        .movie-row {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 영화 상세정보 -->
+      <div class="movie-section">
+        <div class="back">
+          <!-- 뒤로 가기 -->
+          <a href="#" onclick="doClose()">Back to Home</a>
+        </div>
+        <div class="section-left">
+          <!-- 영화 상세 정보(상영시간, 별점, 감독, 배우, 줄거리...) -->
+          <!-- 영화 제목 -->
+          <div id="movie-title" class="movie-title"></div>
+          <!-- 평점, 투표, 상영시간, 개봉년도 -->
+          <div class="movie-rating">
+            <span>Rating <i class="fa fa-star"></i> : <span id="rating"></span> </span>
+            <span>Votes <i class="fa fa-thumbs-up"></i> : <span id="votes"></span> </span>
+            <span>Runtime <i class="fa fa-film"></i> : <span id="runtime"></span> </span>
+            <span>Year <i class="fa fa-calendar"></i> : <span id="year"></span> </span>
+          </div>
+          <!-- 영화 줄거리 -->
+          <div id="movie-plot" class="movie-plot"></div>
+          <!-- 감독, 배우, 장르, 수상내역 -->
+          <div class="movie-info">
+            <div>
+              <span>Director</span>
+              <span id="director"></span>
+            </div>
+            <div>
+              <span>Stars</span>
+              <span id="stars"></span>
+            </div>
+            <div>
+              <span>Generes</span>
+              <span id="generes"></span>
+            </div>
+            <div>
+              <span>Languages</span>
+              <span id="languages"></span>
+            </div>
+            <div>
+              <span>Awards</span>
+              <span id="awards"></span>
+            </div>
+          </div>
+        </div>
+        <div id="poster-img" class="section-right">
+          <!-- 영화 포스터 이미지 -->
+        </div>
+      </div>
+
+      <!-- omdb에서 가져올 영화,시리즈  -->
+      <div class="movie-list">
+        <div class="site-title">
+          <h2>HYUN NETFLIX 😛</h2>
+        </div>
+        <!-- 영화 -->
+        <div class="movie-row">
+          <!-- this : 나 자신과 자식 태그들 까지 포함 -->
+          <div class="item" data-tilt onclick="getMovieDetail(this)">
+            <!-- 영화 포스터 이미지 -->
+            <div id="movie-poster-0" class="poster"></div>
+            <!-- 영화 제목 -->
+            <h4 id="movie-title-0" class="title"></h4>
+            <!-- 영화 개봉날짜 -->
+            <p id="movie-year-0" class="year"></p>
+            <input id="movie-id-0" type="hidden" />
+          </div>
+          <div class="item" data-tilt onclick="getMovieDetail(this)">
+            <div id="movie-poster-1" class="poster"></div>
+            <h4 id="movie-title-1" class="title"></h4>
+            <p id="movie-year-1" class="year"></p>
+            <input id="movie-id-1" type="hidden" />
+          </div>
+          <div class="item" data-tilt onclick="getMovieDetail(this)">
+            <div id="movie-poster-2" class="poster"></div>
+            <h4 id="movie-title-2" class="title"></h4>
+            <p id="movie-year-2" class="year"></p>
+            <input id="movie-id-2" type="hidden" />
+          </div>
+          <div class="item" data-tilt onclick="getMovieDetail(this)">
+            <div id="movie-poster-3" class="poster"></div>
+            <h4 id="movie-title-3" class="title"></h4>
+            <p id="movie-year-3" class="year"></p>
+            <input id="movie-id-3" type="hidden" />
+          </div>
+          <div class="item" data-tilt onclick="getMovieDetail(this)">
+            <div id="movie-poster-4" class="poster"></div>
+            <h4 id="movie-title-4" class="title"></h4>
+            <p id="movie-year-4" class="year"></p>
+            <input id="movie-id-4" type="hidden" />
+          </div>
+        </div>
+        <!-- 시리즈 물 -->
+        <div class="series-row">
+          <div class="item" data-tilt>
+            <div id="series-poster-0" class="poster"></div>
+            <h4 id="series-title-0" class="title"></h4>
+            <p id="series-year-0" class="year"></p>
+          </div>
+          <div class="item" data-tilt>
+            <div id="series-poster-1" class="poster"></div>
+            <h4 id="series-title-1" class="title"></h4>
+            <p id="series-year-1" class="year"></p>
+          </div>
+          <div class="item" data-tilt>
+            <div id="series-poster-2" class="poster"></div>
+            <h4 id="series-title-2" class="title"></h4>
+            <p id="series-year-2" class="year"></p>
+          </div>
+          <div class="item" data-tilt>
+            <div id="series-poster-3" class="poster"></div>
+            <h4 id="series-title-3" class="title"></h4>
+            <p id="series-year-3" class="year"></p>
+          </div>
+          <div class="item" data-tilt>
+            <div id="series-poster-4" class="poster"></div>
+            <h4 id="series-title-4" class="title"></h4>
+            <p id="series-year-4" class="year"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../js/vanilla-tilt.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    const API_KEY = '764ed67'; //const(상수)변수이름은 대문자로!!
+    //http://www.omdbapi.com/?apikey=[yourkey]&
+    //함수 이름에 init이 있으면 초기 실행(페이지가 로딩될 때)하는 함수 의미
+    initMovie();
+    initSeries();
+
+    function initMovie() {
+      var search = 'love';
+      var type = 'movie';
+      //ajax : 백엔드와 통신(디폴트 : *비동기 통신)
+      //**비동기와 동기 차이점
+      //POST : insert , PATCH : update, DELETE : delete, GET : select
+      $.ajax({
+        url: 'http://www.omdbapi.com/?apikey=' + API_KEY + '&s=' + search + '&type=' + type,
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+          for (var i = 0; i < 5; i++) {
+            //console.log(response.Search[i].imdbID);
+            var posterUrl = response.Search[i].Poster;
+            var html = '<img src="' + posterUrl + '"></img>';
+            $('#movie-poster-' + i).append(html);
+            $('#movie-title-' + i).append(response.Search[i].Title);
+            $('#movie-year-' + i).append(response.Search[i].Year);
+            $('#movie-id-' + i).val(response.Search[i].imdbID);
+          }
+        },
+      });
+    }
+
+    function initSeries() {
+      var search = 'love';
+      var type = 'series';
+      $.ajax({
+        url: 'http://www.omdbapi.com/?apikey=' + API_KEY + '&s=' + search + '&type=' + type,
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+          for (var i = 0; i < 5; i++) {
+            var posterUrl = response.Search[i].Poster;
+            var html = '<img src="' + posterUrl + '"></img>';
+            $('#series-poster-' + i).append(html);
+            $('#series-title-' + i).append(response.Search[i].Title);
+            $('#series-year-' + i).append(response.Search[i].Year);
+          }
+        },
+      });
+    }
+
+    //tt1570728
+    //영화상세 정보 조회
+    function getMovieDetail(object) {
+      //console.log(object.children[3].value);
+      var movieId = object.children[3].value;
+
+      $.ajax({
+        url: 'http://www.omdbapi.com/?apikey=' + API_KEY + '&i=' + movieId + '&plot=full',
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+          //console.log(response);
+          $('.movie-section').css('visibility', 'visible');
+          $('.movie-list').css('opacity', 0.3);
+
+          $('#movie-title').empty();
+          $('#movie-title').append(response.Title);
+          $('#rating').empty();
+          $('#rating').append(response.imdbRating);
+          $('#votes').empty();
+          $('#votes').append(response.imdbVotes);
+          $('#runtime').empty();
+          $('#runtime').append(response.Runtime);
+          $('#year').empty();
+          $('#year').append(response.Year);
+          $('#movie-plot').empty();
+          $('#movie-plot').append(response.Plot);
+          $('#director').empty();
+          $('#director').append(response.Director);
+          $('#stars').empty();
+          $('#stars').append(response.Actors);
+          $('#generes').empty();
+          $('#generes').append(response.Genre);
+          $('#languages').empty();
+          $('#languages').append(response.Language);
+          $('#awards').empty();
+          $('#awards').append(response.Awards);
+          $('#poster-img').empty();
+          var html = '<img src="' + response.Poster + '" />';
+          $('#poster-img').append(html);
+        },
+      });
+    }
+
+    function doClose() {
+      $('.movie-section').css('visibility', 'hidden');
+      $('.movie-list').css('opacity', 1);
+    }
+  </script>
+</html>
