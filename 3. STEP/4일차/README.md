@@ -1,2 +1,2 @@
 1. todo 복습
-2. json
+2. 문자열 / json
