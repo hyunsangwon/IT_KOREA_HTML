@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //1. indexOf() : 특정문자가 몇번째 있는지 확인, 찾는 문자가 없다면 -1 반환
+    let name = 'kakao';
+    var result = name.indexOf('k');
+    console.log('result : ' + result);
+    var result = name.indexOf('m');
+    console.log('result : ' + result);
+    //2. includes() : 문자열에 특정문자가 있으면 true를 없으면 false를 반환.
+    var str = 'americano';
+    str.includes('a'); // true
+    str.includes('f'); // false
+    //3. split() : 지정한 구분자를 이용하여 여러 개의 문자열로 나눈다.
+    var str = 'americano,latte,moca';
+    var resultArr = str.split(','); //배열 리턴
+    console.log(resultArr[0]);
+    //4. replaceAll() : 특정 문자로 대체.
+    var str = 'apple, Banana, banana, orange, banana, ';
+    var replace_str = str.replaceAll('banana', 'mango'); //대소문자 구분됨
+    console.log(replace_str);
+    //5. concat() : 문자열 합치기
+    var str1 = 'Java';
+    var str2 = 'Script';
+    var res = str1.concat(str2);
+    console.log(res);
+    //6. join() : 배열을 문자열로 합치기
+    var menu = ['americano', 'latte', 'moca'];
+    var res = menu.join();
+    console.log(res);
+    //7. substring() : 시작 인덱스로 부터 종료 인덱스 전 까지 문자열의 부분 문자열을 반환합니다.
+    var str = 'Mozilla';
+    console.log(str.substring(1, 3));
+    // Expected output: "oz"
+    console.log(str.substring(2));
+    // Expected output: "zilla"
+
+    //8. toupper tolower
+    //9. trim : 공백제거
+    //10. toString() : 문자열 표현을 반환합니다.
+    var x = 10;
+    console.log(x.toString());
+    var regexEnglish = /^[a-z|A-Z]+$/;
+    var regexNumber = /^[0-9]+$/; //숫자만 체크
+
+    var str = 'americano';
+    console.log(str.charAt(1)); //한글자 씩 가져오기
+    console.log(str.length); //문자길이 반환
+  </script>
+</html>

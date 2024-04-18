@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script>
+    function useState(initState) {
+      let state = initState; // state를 정의한다.
+      const setState = (newState) => {
+        console.log(newState);
+        state = newState; // 새로운 state를 할당한다
+        render(); // render를 실행한다.
+      };
+      return [state, setState];
+    }
+    function Counter() {
+      const [count, setCount] = useState(1);
+      //window 객체는 웹 브라우저의 정보를 나타내는 객체(변수)로, 대부분의 웹 브라우저에서 지원하고 있습니다.
+      window.increment = () => setCount(count + 1);
+      return `<div> <strong>count: ${count} </strong>
+            <button onclick="increment()">증가</button>
+          </div>`;
+    }
+    function render() {
+      const app = document.querySelector('#app');
+      app.innerHTML = Counter();
+    }
+    render();
+  </script>
+</html>
