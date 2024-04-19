@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let emailList = 'about@gmail.com,you@naver.com,me@gmail.com';
+    //split을 이용해서 이메일 아이디만 받아보기
+
+    //전화번호 뒷 4자리 제외 연락처를 *로 처리하기
+    let phoneNumber = '01015771577';
+    const EXCEPTION_LEN = 4;
+    let starCount = phoneNumber.length - EXCEPTION_LEN;
+    console.log('starCount : ' + starCount);
+    let lastNumber = phoneNumber.substring(starCount, starCount + EXCEPTION_LEN);
+    console.log('lastNumber : ' + lastNumber);
+    let star = '';
+    for (let i = 0; i < starCount; i++) {
+      star += '*';
+    }
+    console.log('star : ' + star);
+    phoneNumber = star + lastNumber;
+    console.log('phoneNumber : ' + phoneNumber);
+
+    //자주사용하는 정렬 메소드
+    const months = ['March', 'Jan', 'Feb', 'Dec'];
+    months.sort();
+    console.log(months);
+    // Expected output: Array ["Dec", "Feb", "Jan", "March"]
+
+    const array1 = [1, 30, 4, 21, 100000];
+    array1.sort();
+    console.log(array1);
+    // Expected output: Array [1, 100000, 21, 30, 4]
+  </script>
+</html>
