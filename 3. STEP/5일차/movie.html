@@ -297,6 +297,7 @@
         type: 'GET',
         dataType: 'json',
         success: function (response) {
+          console.log(response);
           for (var i = 0; i < 5; i++) {
             //console.log(response.Search[i].imdbID);
             var posterUrl = response.Search[i].Poster;
@@ -340,7 +341,7 @@
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-          //console.log(response);
+          console.log(response);
           $('.movie-section').css('visibility', 'visible');
           $('.movie-list').css('opacity', 0.3);
 

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .movie {
+        padding: 20px;
+        background-color: #141414;
+      }
+      .movie-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+      }
+      .site-title h2 {
+        text-align: center;
+        font-size: 38px;
+        color: #e50914;
+        margin-bottom: 50px;
+      }
+      .movie-row .item {
+        flex-basis: 17%;
+        cursor: pointer;
+      }
+      .movie-row .poster {
+        min-width: 100px;
+        height: auto;
+      }
+      .movie-row .poster img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .movie-row .item .title {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 22px;
+        color: #fff;
+      }
+      .movie-row .item .year {
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="movie">
+      <div class="site-title">
+        <h2>MOVIES</h2>
+      </div>
+      <div class="movie-row"></div>
+    </div>
+  </body>
+  <script>
+    const jsonData = [
+      {
+        Title: 'Crazy, Stupid, Love.',
+        Year: '2011',
+        imdbID: 'tt1570728',
+        Type: 'movie',
+        Poster: 'https://m.media-amazon.com/images/M/MV5BMTg2MjkwMTM0NF5BMl5BanBnXkFtZTcwMzc4NDg2NQ@@._V1_SX300.jpg',
+      },
+      {
+        Title: 'Love Actually',
+        Year: '2003',
+        imdbID: 'tt0314331',
+        Type: 'movie',
+        Poster: 'https://m.media-amazon.com/images/M/MV5BNThkNjgxNGQtOTIxMy00ZTFmLWIwMDItYzE5YzM3ZDMzNDE3XkEyXkFqcGdeQXVyMTUyNjc3NDQ4._V1_SX300.jpg',
+      },
+      {
+        Title: 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
+        Year: '1964',
+        imdbID: 'tt0057012',
+        Type: 'movie',
+        Poster: 'https://m.media-amazon.com/images/M/MV5BMWMxYjZkOWUtM2FjMi00MmI1LThkNzQtNTM5Y2E2ZGQ2NGFhXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_SX300.jpg',
+      },
+      {
+        Title: 'Thor: Love and Thunder',
+        Year: '2022',
+        imdbID: 'tt10648342',
+        Type: 'movie',
+        Poster: 'https://m.media-amazon.com/images/M/MV5BYmMxZWRiMTgtZjM0Ny00NDQxLWIxYWQtZDdlNDNkOTEzYTdlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg',
+      },
+      {
+        Title: 'Shakespeare in Love',
+        Year: '1998',
+        imdbID: 'tt0138097',
+        Type: 'movie',
+        Poster: 'https://m.media-amazon.com/images/M/MV5BM2ZkNjM5MjEtNTBlMC00OTI5LTgyYmEtZDljMzNmNzhiNzY0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg',
+      },
+    ];
+    jsonData.forEach((data) => {
+      document.querySelector('.movie-row').innerHTML += `<div class="item" data-movieId="${data.imdbID}">
+          <div class="poster">
+            <img src="${data.Poster}" />
+          </div>
+          <h4 class="title">${data.Title}</h4>
+          <p class="year">${data.Year}</p>
+       </div>
+        `;
+    });
+
+    const jsonMovieData = {
+      Title: 'Thor: Love and Thunder',
+      Year: '2022',
+      Released: '08 Jul 2022',
+      Runtime: '118 min',
+      Genre: 'Action, Adventure, Comedy',
+      Director: 'Taika Waititi',
+      Writer: 'Taika Waititi, Jennifer Kaytin Robinson, Stan Lee',
+      Actors: 'Chris Hemsworth, Natalie Portman, Christian Bale',
+      Plot: 'Thor enlists the help of Valkyrie, Korg and ex-girlfriend Jane Foster to fight Gorr the God Butcher, who intends to make the gods extinct.',
+      Language: 'English',
+      Country: 'Australia, United States',
+      Awards: '3 wins & 21 nominations',
+      Poster: 'https://m.media-amazon.com/images/M/MV5BYmMxZWRiMTgtZjM0Ny00NDQxLWIxYWQtZDdlNDNkOTEzYTdlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg',
+      Ratings: [
+        {
+          Source: 'Internet Movie Database',
+          Value: '6.2/10',
+        },
+        {
+          Source: 'Rotten Tomatoes',
+          Value: '63%',
+        },
+        {
+          Source: 'Metacritic',
+          Value: '57/100',
+        },
+      ],
+      Metascore: '57',
+      imdbRating: '6.2',
+      imdbVotes: '397,760',
+      imdbID: 'tt10648342',
+      Type: 'movie',
+      DVD: '08 Sep 2022',
+      BoxOffice: '$343,256,830',
+      Production: 'N/A',
+      Website: 'N/A',
+      Response: 'True',
+    };
+  </script>
+</html>
