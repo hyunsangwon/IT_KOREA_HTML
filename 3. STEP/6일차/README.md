@@ -1,1 +1,2 @@
-1. json 복습, forEach
+1. json
+2. map, forEach

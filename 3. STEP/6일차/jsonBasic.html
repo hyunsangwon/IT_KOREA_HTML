@@ -4,37 +4,192 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .title {
+        border: 1px solid black;
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      .search-zone {
+        border: 1px solid red;
+        width: 40%;
+        padding: 5px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .emp-list {
+        padding: 10px;
+        background-color: #ececec;
+      }
+      .emp-info {
+        border: 1px solid black;
+        margin-bottom: 15px;
+      }
+      .sal {
+        display: none;
+      }
+      .search {
+        display: block;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="title">사원 목록</div>
+    <div class="search-zone">
+      <b>검색조건 : </b>
+      <select id="search-type" onchange="setSearchType()">
+        <option value="name">이름</option>
+        <option value="job">직책</option>
+        <option value="sal">급여</option>
+      </select>
+      <div class="search">
+        <b>검색명 : </b>
+        <input id="search-value" type="text" placeholder="값을 입력해주세요..." />
+      </div>
+      <div class="sal">
+        <b>급여범위 : </b>
+        <input id="sal-min" type="text" placeholder="최소값을 입력해주세요..." />
+        ~
+        <input id="sal-max" type="text" placeholder="최댓값을 입력해주세요..." />
+      </div>
+      <button onclick="search()">검색</button>
+    </div>
+    <div class="emp-list">
+      <!-- 데이터 속성 
+      데이터에 대한 확장성을 고려하여 설계되었습니다.
+      -->
+      <div class="emp-info" data-id="10000" onclick="getEmp(this)">
+        <p>사원번호 : 10000</p>
+        <p>사원이름 : KING</p>
+        <p>직책 : CEO</p>
+        <p>입사날짜 : 2024-04-23</p>
+      </div>
+    </div>
+  </body>
   <script>
     const jsonEmployee = [
       {
-        empno: 85442,
+        empno: 10000,
         name: 'KING',
         job: 'CEO',
+        sal: 4500,
         hiredate: '2024-04-23',
       },
       {
-        empno: 85442,
+        empno: 15777,
         name: 'SMITH',
         job: 'SALES',
+        sal: 3200,
         hiredate: '2024-04-10',
       },
       {
-        empno: 85442,
+        empno: 99131,
         name: 'BRIAN',
         job: 'SALES',
+        sal: 3000,
         hiredate: '2024-04-01',
       },
     ];
-    const jsonEmployeeDetail = {
-      empno: 85442,
-      name: 'SMITH',
-      sal: 4500,
-      comm: 100,
-      deptno: 30,
-      dname: 'MARKETING',
-      dloc: 'LA',
-    };
+
+    const jsonDetail = [
+      {
+        empno: 10000,
+        name: 'KING',
+        job: 'CEO',
+        sal: 8800,
+        comm: 0,
+        phone: '010-1234-5678',
+        dname: 'MANAGE',
+        dloc: 'jeju',
+        hiredate: '2018-03-23',
+      },
+      {
+        empno: 15777,
+        name: 'SMITH',
+        job: 'SALES',
+        sal: 3200,
+        comm: 350,
+        phone: '010-1234-1111',
+        dname: 'SALES',
+        dloc: 'seoul',
+        hiredate: '2023-03-23',
+      },
+    ];
+
+    function getEmp(e) {
+      let id = Number(e.dataset.id);
+      console.log(id);
+      jsonDetail.forEach((e) => {
+        console.log(e.empno);
+        if (e.empno === id) {
+          let str = e.name + '에 부서는 ' + e.dloc + '에 있습니다.';
+          //quiz. 연락처도 추가하기 단, '-' 제거해서 보여줄 것
+          alert(str);
+        }
+      });
+    }
+
+    function setSearchType() {
+      let type = document.querySelector('#search-type').value;
+      if (type === 'sal') {
+        document.querySelector('.search').style.display = 'none';
+        document.querySelector('.sal').style.display = 'block';
+      } else {
+        document.querySelector('.search').style.display = 'block';
+        document.querySelector('.sal').style.display = 'none';
+      }
+    }
+
+    function search() {
+      let type = document.querySelector('#search-type').value;
+      console.log('type : ' + type);
+      let serachValue = document.querySelector('#search-value').value;
+      console.log('serachValue : ' + serachValue);
+
+      //검색 필터링
+      if (type === 'name') {
+        //빈값 체크
+        if (serachValue === '') {
+          alert('값을 입력해주세요');
+          document.querySelector('.emp-info').remove();
+          return false;
+        }
+        jsonEmployee.forEach((data) => {
+          if (data.name === serachValue) {
+            let html = '';
+            html += `<div class="emp-info">
+                  <p>사원번호 : ${data.empno}</p>
+                  <p>사원이름 : ${data.name}</p>
+                  <p>직책 : ${data.job}</p>
+                  <p>입사날짜 : ${data.hiredate}</p>
+                </div>`;
+            document.querySelector('.emp-list').innerHTML += html;
+          }
+        });
+      }
+      let minSal = Number(document.querySelector('#sal-min').value);
+      let maxSal = Number(document.querySelector('#sal-max').value);
+      if (type === 'sal') {
+        jsonEmployee.forEach((data) => {
+          if (data.sal >= minSal && data.sal <= maxSal) {
+            let html = '';
+            html += `<div class="emp-info">
+                  <p>사원번호 : ${data.empno}</p>
+                  <p>사원이름 : ${data.name}</p>
+                  <p>직책 : ${data.job}</p>
+                  <p>입사날짜 : ${data.hiredate}</p>
+                </div>`;
+            document.querySelector('.emp-list').innerHTML += html;
+          }
+        });
+      }
+    }
   </script>
 </html>
