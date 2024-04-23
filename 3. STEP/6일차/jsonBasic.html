@@ -11,22 +11,23 @@
         box-sizing: border-box;
       }
       .title {
+        /* rem : 16 */
         border: 1px solid black;
-        text-align: center;
         font-size: 2rem;
-        margin-bottom: 20px;
+        text-align: center;
       }
       .search-zone {
-        border: 1px solid red;
-        width: 40%;
-        padding: 5px;
-        margin-bottom: 15px;
+        border: 1px solid black;
+        margin-top: 30px;
+        width: 80%;
+        padding: 5%;
         display: flex;
         justify-content: space-evenly;
       }
       .emp-list {
-        padding: 10px;
+        margin-top: 30px;
         background-color: #ececec;
+        padding: 10px;
       }
       .emp-info {
         border: 1px solid black;
@@ -43,37 +44,38 @@
   <body>
     <div class="title">사원 목록</div>
     <div class="search-zone">
-      <b>검색조건 : </b>
+      <b>검색 조건 : </b>
       <select id="search-type" onchange="setSearchType()">
         <option value="name">이름</option>
         <option value="job">직책</option>
         <option value="sal">급여</option>
       </select>
       <div class="search">
-        <b>검색명 : </b>
-        <input id="search-value" type="text" placeholder="값을 입력해주세요..." />
+        <b>검색 명 : </b>
+        <input id="search-value" type="text" placeholder="값을 입력해주세요" />
       </div>
       <div class="sal">
-        <b>급여범위 : </b>
-        <input id="sal-min" type="text" placeholder="최소값을 입력해주세요..." />
+        <b>급여 범위 : </b>
+        <input id="sal-min" type="text" placeholder="최솟값을 입력해주세요." />
         ~
-        <input id="sal-max" type="text" placeholder="최댓값을 입력해주세요..." />
+        <input id="sal-max" type="text" placeholder="최댓값을 입력해주세요." />
       </div>
       <button onclick="search()">검색</button>
     </div>
+    <!-- 사원 데이터 -->
     <div class="emp-list">
-      <!-- 데이터 속성 
-      데이터에 대한 확장성을 고려하여 설계되었습니다.
-      -->
-      <div class="emp-info" data-id="10000" onclick="getEmp(this)">
+      <!--
+        더미데이터
+        <div class="emp-info" onclick="getEmp(this)">
         <p>사원번호 : 10000</p>
         <p>사원이름 : KING</p>
         <p>직책 : CEO</p>
         <p>입사날짜 : 2024-04-23</p>
-      </div>
+      </div> -->
     </div>
   </body>
   <script>
+    //sal : 급여, hiredate : 입사날짜, empno: 사원번호
     const jsonEmployee = [
       {
         empno: 10000,
@@ -123,73 +125,100 @@
       },
     ];
 
-    function getEmp(e) {
-      let id = Number(e.dataset.id);
-      console.log(id);
-      jsonDetail.forEach((e) => {
-        console.log(e.empno);
-        if (e.empno === id) {
-          let str = e.name + '에 부서는 ' + e.dloc + '에 있습니다.';
-          //quiz. 연락처도 추가하기 단, '-' 제거해서 보여줄 것
-          alert(str);
-        }
-      });
-    }
-
+    //select box에 선택한 값이 변경될 때마다 호출
     function setSearchType() {
       let type = document.querySelector('#search-type').value;
+      console.log('선택한 검색 타입 : ' + type);
       if (type === 'sal') {
         document.querySelector('.search').style.display = 'none';
         document.querySelector('.sal').style.display = 'block';
       } else {
-        document.querySelector('.search').style.display = 'block';
         document.querySelector('.sal').style.display = 'none';
+        document.querySelector('.search').style.display = 'block';
       }
+      //이름, 직책을 클릭했을 때 검색명 인풋 나오게 구현
     }
-
+    //검색 버튼 클릭했을 때 호출
     function search() {
-      let type = document.querySelector('#search-type').value;
-      console.log('type : ' + type);
-      let serachValue = document.querySelector('#search-value').value;
-      console.log('serachValue : ' + serachValue);
-
-      //검색 필터링
-      if (type === 'name') {
-        //빈값 체크
-        if (serachValue === '') {
-          alert('값을 입력해주세요');
-          document.querySelector('.emp-info').remove();
-          return false;
+      let len = document.querySelector('.emp-list').children.length;
+      console.log('len : ' + len);
+      if (len > 0) {
+        //자식 길이가 있다면
+        console.log('확인');
+        const item = document.querySelector('.emp-list');
+        while (item.firstChild) {
+          item.removeChild(item.firstChild);
         }
+      }
+      let type = document.querySelector('#search-type').value;
+      if (type === 'name' || type === 'job') {
+        let searchValue = document.querySelector('#search-value').value;
+        //빈값 체크
+        if (searchValue === '') {
+          alert('값을 입력해주세요');
+          const item = document.querySelector('.emp-list');
+          while (item.firstChild) {
+            item.removeChild(item.firstChild);
+          }
+          return false; //함수 강제 종료
+        }
+        //체크 통과
         jsonEmployee.forEach((data) => {
-          if (data.name === serachValue) {
+          if (data.name === searchValue) {
             let html = '';
-            html += `<div class="emp-info">
-                  <p>사원번호 : ${data.empno}</p>
-                  <p>사원이름 : ${data.name}</p>
-                  <p>직책 : ${data.job}</p>
-                  <p>입사날짜 : ${data.hiredate}</p>
-                </div>`;
+            // data-id : 데이터 속성, 데이터에 대한 확장성을 고려하여 설계
+            html += `<div class="emp-info" data-id="${data.empno}" onclick="getEmp(this)">
+                <p>사원번호 : ${data.empno}</p>
+                <p>사원이름 : ${data.name}</p>
+                <p>직책 : ${data.job}</p>
+                <p>입사날짜 :${data.hiredate}</p>
+                </div>
+                `;
+            document.querySelector('.emp-list').innerHTML += html;
+          }
+          if (data.job === searchValue) {
+            let html = '';
+            html += `<div class="emp-info" data-id="${data.empno}" onclick="getEmp(this)">
+                <p>사원번호 : ${data.empno}</p>
+                <p>사원이름 : ${data.name}</p>
+                <p>직책 : ${data.job}</p>
+                <p>입사날짜 :${data.hiredate}</p>
+                </div>
+                `;
             document.querySelector('.emp-list').innerHTML += html;
           }
         });
       }
+      //Number : 문자 -> 숫자로 변환
       let minSal = Number(document.querySelector('#sal-min').value);
       let maxSal = Number(document.querySelector('#sal-max').value);
+      console.log(type);
       if (type === 'sal') {
         jsonEmployee.forEach((data) => {
           if (data.sal >= minSal && data.sal <= maxSal) {
             let html = '';
-            html += `<div class="emp-info">
-                  <p>사원번호 : ${data.empno}</p>
-                  <p>사원이름 : ${data.name}</p>
-                  <p>직책 : ${data.job}</p>
-                  <p>입사날짜 : ${data.hiredate}</p>
-                </div>`;
+            html += `<div class="emp-info" data-id="${data.empno}" onclick="getEmp(this)">
+                <p>사원번호 : ${data.empno}</p>
+                <p>사원이름 : ${data.name}</p>
+                <p>직책 : ${data.job}</p>
+                <p>입사날짜 :${data.hiredate}</p>
+                </div>
+                `;
             document.querySelector('.emp-list').innerHTML += html;
           }
         });
       }
+    }
+    //사원 목록 클릭했을 때 호출
+    function getEmp(e) {
+      console.log(e);
+      let empno = Number(e.dataset.id); //data-id에 값을 가져옴
+      jsonDetail.forEach((e) => {
+        if (e.empno === empno) {
+          let msg = e.name + '에 부서는 ' + e.dloc + '에 있습니다.';
+          alert(msg);
+        }
+      });
     }
   </script>
 </html>
